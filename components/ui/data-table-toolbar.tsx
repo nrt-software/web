@@ -15,18 +15,23 @@ export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
+  const tableHasEmailColumn = table
+    .getAllColumns()
+    .find((column) => column.id === "email");
 
   return (
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-2">
-        <Input
-          placeholder="Filter email..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
-          }
-          className="h-8 w-[250px] lg:w-[350px]"
-        />
+        {tableHasEmailColumn && (
+          <Input
+            placeholder="Filter email..."
+            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+            onChange={(event) =>
+              table.getColumn("email")?.setFilterValue(event.target.value)
+            }
+            className="h-8 w-[250px] lg:w-[350px]"
+          />
+        )}
         {isFiltered && (
           <Button
             variant="ghost"

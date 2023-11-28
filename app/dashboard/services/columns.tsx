@@ -1,3 +1,8 @@
+// id
+// name
+// description
+// price
+
 "use client";
 
 import { DataTableColumnHeader } from "@/components/ui/data-table-header";
@@ -8,12 +13,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ClientData } from "@/mock/client";
+import { ServiceData } from "@/mock/services";
 import { ColumnDef } from "@tanstack/react-table";
 import { FileEdit, MoreHorizontal } from "lucide-react";
 import { useRouter as routerFn } from "next/navigation";
 
-export const columns: ColumnDef<ClientData>[] = [
+export const columns: ColumnDef<ServiceData>[] = [
   {
     accessorKey: "id",
     header: "id",
@@ -25,41 +30,31 @@ export const columns: ColumnDef<ClientData>[] = [
     },
   },
   {
-    accessorKey: "phone",
+    accessorKey: "description",
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Phone" />;
+      return <DataTableColumnHeader column={column} title="Description" />;
     },
   },
   {
-    accessorKey: "businessPhoneNumberId",
-    header: "Business Phone Id",
-  },
-  {
-    accessorKey: "email",
+    accessorKey: "price",
     header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Email" />;
-    },
-  },
-  {
-    accessorKey: "createdAt",
-    header: ({ column }) => {
-      return <DataTableColumnHeader column={column} title="Created At" />;
+      return <DataTableColumnHeader column={column} title="Amount" />;
     },
     cell: ({ row }) => {
-      const value = row.original;
+      const amount = parseFloat(row.getValue("price"));
+      const formatted = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      }).format(amount);
 
-      return (
-        <div className="font-medium">
-          {new Date(value.createdAt).toLocaleString("pt-BR")}
-        </div>
-      );
+      return <div className="text-right font-medium">{formatted}</div>;
     },
   },
   {
     id: "actions",
     header: "Action",
     cell: ({ row }) => {
-      const user = row.original;
+      const service = row.original;
       const router = routerFn();
 
       return (
@@ -73,12 +68,12 @@ export const columns: ColumnDef<ClientData>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuItem
               onClick={() => {
-                router.push(`/dashboard/clients/${user.id}`);
+                router.push(`/dashboard/service/${service.id}`);
               }}
               className="p-2"
             >
               <FileEdit className="mr-2 h-4 w-4" />
-              Edit Client
+              Edit Service
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

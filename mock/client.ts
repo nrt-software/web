@@ -1,3 +1,5 @@
+import { faker } from "@faker-js/faker";
+
 export interface ClientData {
   email: string;
   id: string;
@@ -14,10 +16,10 @@ const generateClientData = (count: number): Promise<ClientData[]> => {
 
     for (let i = 1; i <= count; i++) {
       const sampleItem: ClientData = {
-        id: `ff7dc26e-6be0-4dcc-894d-ccb908c03fbb-${i}`,
-        email: `email${i}@example.com`,
-        name: `User ${i}`,
-        phone: `(19) 91234-232${i}`,
+        id: faker.string.uuid(),
+        email: faker.internet.email(),
+        name: faker.person.fullName(),
+        phone: faker.phone.number(),
         businessPhoneNumberId: i,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),

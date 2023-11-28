@@ -1,3 +1,5 @@
+import { faker } from "@faker-js/faker";
+
 export type Payment = {
   id: string;
   amount: number;
@@ -11,10 +13,10 @@ const generateSampleDataPayment = (count: number): Promise<Payment[]> => {
 
     for (let i = 1; i <= count; i++) {
       const sampleItem: Payment = {
-        id: "728ed52f" + i,
-        amount: 100 + i,
+        id: faker.string.uuid(),
+        amount: Number(faker.finance.amount(10, 5000)),
         status: "pending",
-        email: "m@example.com" + i,
+        email: faker.internet.email(),
       };
 
       data.push(sampleItem);
