@@ -19,7 +19,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex min-h-screen">
+    <main className="flex min-h-screen justify-center align-center">
       <div className="p-8">
         <ModeToggle />
       </div>

@@ -1,15 +1,13 @@
-"use client";
+import { columns } from "@/app/dashboard/clients/columns";
+import { DataTable } from "@/components/ui/data-table";
+import generateClientData from "@/mock/client";
 
-import useTable from "@/hooks/useTable";
-import generateSampleData, { SampleData } from "@/mock/client";
+export default async function Page() {
+  const data = await generateClientData(40);
 
-export default function Page() {
-  const dataPromise = generateSampleData(20);
-
-  const { table } = useTable<SampleData>({
-    dataPromise: dataPromise,
-    caption: "A list of clients",
-  });
-
-  return <div>{table}</div>;
+  return (
+    <div className="w-full pr-4">
+      <DataTable columns={columns} data={data} />
+    </div>
+  );
 }

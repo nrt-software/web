@@ -1,5 +1,6 @@
-export interface SampleData {
+export interface ClientData {
   email: string;
+  id: string;
   name: string;
   phone: string;
   businessPhoneNumberId: number;
@@ -7,15 +8,16 @@ export interface SampleData {
   updatedAt: string;
 }
 
-const generateSampleData = (count: number): Promise<SampleData[]> => {
+const generateClientData = (count: number): Promise<ClientData[]> => {
   return new Promise((resolve) => {
-    const data: SampleData[] = [];
+    const data: ClientData[] = [];
 
     for (let i = 1; i <= count; i++) {
-      const sampleItem: SampleData = {
+      const sampleItem: ClientData = {
+        id: `ff7dc26e-6be0-4dcc-894d-ccb908c03fbb-${i}`,
         email: `email${i}@example.com`,
         name: `User ${i}`,
-        phone: `123-456-789${i.toString().padStart(2, "0")}`,
+        phone: `(19) 91234-232${i}`,
         businessPhoneNumberId: i,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
@@ -30,4 +32,10 @@ const generateSampleData = (count: number): Promise<SampleData[]> => {
   });
 };
 
-export default generateSampleData;
+export const getClientById = async (id: string) => {
+  const data = await generateClientData(40);
+
+  return data.find((client) => client.id === id);
+};
+
+export default generateClientData;

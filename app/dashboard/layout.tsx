@@ -4,6 +4,8 @@ import { Sidebar } from "@/components/ui/sidebar";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ModeToggle } from "@/components/ui/changeTheme";
+import { Suspense } from "react";
+import Loading from "@/app/dashboard/loading";
 
 export function AvatarDemo() {
   return (
@@ -23,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <div className="w-full flex justify-between items-end p-4">
         <h4 className="scroll-m-20 text-xl pl-2 font-semibold tracking-tight">
           Lucas Araujo
@@ -41,6 +43,6 @@ export default function RootLayout({
           </div>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 }
