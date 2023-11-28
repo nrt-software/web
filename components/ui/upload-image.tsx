@@ -101,7 +101,7 @@ export default function UploadComponent() {
         simulateLoading(file);
       }
     });
-  }, [files]);
+  }, [files, loadingState]);
 
   return (
     <>

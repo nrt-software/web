@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast as toastFn } from "@/components/ui/use-toast";
 import { Payment } from "@/mock/payments";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, Copy, MoreHorizontal } from "lucide-react";
@@ -65,7 +65,7 @@ export const columns: ColumnDef<Payment>[] = [
     header: "Action",
     cell: ({ row }) => {
       const payment = row.original;
-      const { toast } = useToast();
+      const { toast } = toastFn();
 
       return (
         <DropdownMenu>
