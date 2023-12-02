@@ -6,8 +6,8 @@ export interface ClientData {
   name: string;
   phone: string;
   businessPhoneNumberId: number;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const generateClientData = (count: number): Promise<ClientData[]> => {
@@ -20,9 +20,9 @@ const generateClientData = (count: number): Promise<ClientData[]> => {
         email: faker.internet.email(),
         name: faker.person.fullName(),
         phone: faker.phone.number(),
-        businessPhoneNumberId: i,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
+        businessPhoneNumberId: faker.number.int({ max: 99999, min: 1 }),
+        createdAt: faker.date.anytime(),
+        updatedAt: faker.date.anytime(),
       };
 
       data.push(sampleItem);

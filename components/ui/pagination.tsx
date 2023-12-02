@@ -26,7 +26,7 @@ export function DataTablePagination<TData>({
     .getAllColumns()
     .find((item) => item.id === "select");
 
-  console.log("hasSelectColumn", hasSelectColumn);
+  "hasSelectColumn", hasSelectColumn;
 
   return (
     <div className="flex items-center justify-end px-2 my-8">

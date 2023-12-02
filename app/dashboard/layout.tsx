@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ModeToggle } from "@/components/ui/changeTheme";
 import { Suspense } from "react";
 import Loading from "@/app/dashboard/loading";
+import { useRouter } from "next/navigation";
 
 export function AvatarDemo() {
   return (
@@ -24,13 +25,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { push } = useRouter();
+
   return (
     <Suspense fallback={<Loading />}>
       <div className="w-full flex justify-between items-end p-4">
         <h4 className="scroll-m-20 text-xl pl-2 font-semibold tracking-tight">
           Lucas Araujo
         </h4>
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+        <h3
+          className="scroll-m-20 text-xl font-semibold tracking-tight cursor-pointer"
+          onClick={() => push("/dashboard")}
+        >
           Dashboard
         </h3>
         <ModeToggle />
@@ -39,7 +45,7 @@ export default function RootLayout({
         <div className="bg-background">
           <div className="flex bg-background">
             <Sidebar />
-            <div className="flex w-full mt-10 ml-10">{children}</div>
+            <div className="flex w-full mt-10 ml-10 pr-4">{children}</div>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ export default async function Page() {
   const data = await generateSampleDataPayment(100);
 
   return (
-    <div className="w-full pr-4">
+    <div className="w-full">
       <DataTable columns={columns} data={data} />
     </div>
   );
