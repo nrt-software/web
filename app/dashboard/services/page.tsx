@@ -6,8 +6,8 @@ export default async function Page() {
   const data = await generateServiceData(100);
 
   return (
-    <div className="w-full">
+    <main className="w-full">
       <DataTable columns={columns} data={data} />
-    </div>
+    </main>
   );
 }

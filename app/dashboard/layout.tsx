@@ -7,6 +7,10 @@ import { ModeToggle } from "@/components/ui/changeTheme";
 import { Suspense } from "react";
 import Loading from "@/app/dashboard/loading";
 import { useRouter } from "next/navigation";
+import { CommandMenu } from "@/components/command-menu";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Metadata } from "next";
 
 export function AvatarDemo() {
   return (
@@ -25,20 +29,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { push } = useRouter();
-
   return (
     <Suspense fallback={<Loading />}>
       <div className="w-full flex justify-between items-end p-4">
         <h4 className="scroll-m-20 text-xl pl-2 font-semibold tracking-tight">
           Lucas Araujo
         </h4>
-        <h3
-          className="scroll-m-20 text-xl font-semibold tracking-tight cursor-pointer"
-          onClick={() => push("/dashboard")}
+        <Button
+          className="text-xl font-semibold tracking-tight"
+          asChild
+          variant="link"
         >
-          Dashboard
-        </h3>
+          <Link href="/dashboard" className="text-black dark:text-white">
+            Dashboard
+          </Link>
+        </Button>
         <ModeToggle />
       </div>
       <div className="border-t">
@@ -49,6 +54,7 @@ export default function RootLayout({
           </div>
         </div>
       </div>
+      <CommandMenu />
     </Suspense>
   );
 }

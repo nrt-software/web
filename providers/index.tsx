@@ -12,7 +12,6 @@ function Provider({ children }: any) {
     <QueryClientProvider client={client}>
       <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
       <ReactQueryDevtools initialIsOpen={false} />
-      <CommandMenu />
     </QueryClientProvider>
   );
 }

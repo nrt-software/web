@@ -86,7 +86,7 @@ export default function PieAnalytics() {
           label={renderCustomizedLabelPieAnalytics}
         >
           {pieAnalyticsData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={entry.color} />
+            <Cell key={`cell-${entry.name}`} fill={entry.color} />
           ))}
         </Pie>
       </PieChart>

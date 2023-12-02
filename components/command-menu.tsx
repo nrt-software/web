@@ -33,6 +33,24 @@ export function CommandMenu() {
 
   const options = [
     {
+      title: "Landing page",
+      route: "/",
+      icon: (
+        <div className="mr-2 h-4 w-4 text-center">
+          <CircleDollarSign />
+        </div>
+      ),
+    },
+    {
+      title: "Dashboard (home)",
+      route: defaultRoute,
+      icon: (
+        <div className="mr-2 h-4 w-4 text-center">
+          <CircleDollarSign />
+        </div>
+      ),
+    },
+    {
       title: "Payments",
       route: defaultRoute + "/payments",
       icon: (

@@ -8,7 +8,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const DEFAULT_ITEMS = [
   {
@@ -63,8 +63,6 @@ const DEFAULT_ITEMS = [
 ];
 
 export function Sidebar() {
-  const route = useRouter();
-
   return (
     <div className={cn("pb-12 ", ["min-h-screen lg:w-96 mt-4 border-r"])}>
       <div className="space-y-4 py-4">
@@ -80,10 +78,12 @@ export function Sidebar() {
                   variant="ghost"
                   size="sm"
                   className="w-full justify-start"
-                  onClick={() => route.push(sub.href)}
+                  asChild
                 >
-                  {sub.icon}
-                  {sub.label}
+                  <Link href={sub.href}>
+                    {sub.icon}
+                    {sub.label}
+                  </Link>
                 </Button>
               ))}
             </div>
