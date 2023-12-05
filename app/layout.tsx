@@ -4,7 +4,6 @@ import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "@/providers";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -37,8 +36,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Provider>{children}</Provider>
           <Toaster />
+          <Provider>{children}</Provider>
         </ThemeProvider>
       </body>
     </html>
