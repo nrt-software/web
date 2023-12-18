@@ -104,7 +104,7 @@ export const RegisterForm = () => {
 
   return (
     <div className="w-full lg:w-1/3">
-      <Progress value={progress} className="h-2 my-10" />
+      <Progress value={progress} className="h-4 my-10"></Progress>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {currentStep === 0 && (
@@ -180,7 +180,7 @@ export const RegisterForm = () => {
                 <FormItem>
                   <FormLabel>E-mail</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" type="email" {...field} />
+                    <Input placeholder="" type="email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -75,12 +75,32 @@ module.exports = {
             transform: "rotate(90deg)",
           },
         },
+        "background-shine": {
+          from: {
+            backgroundPosition: "0 0",
+          },
+          to: {
+            backgroundPosition: "-200% 0",
+          },
+        },
+        "border-width": {
+          from: {
+            width: "10px",
+            opacity: "0",
+          },
+          to: {
+            width: "100px",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         flip: "flip 6s infinite steps(2, end)",
         rotate: "rotate 3s linear infinite both",
+        "background-shine": "background-shine 2s linear infinite",
+        "border-width": "border-width 3s infinite alternate",
       },
     },
   },

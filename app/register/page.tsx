@@ -1,3 +1,4 @@
+import { Hero } from "@/app/register/(ui)/background";
 import { RegisterForm } from "@/app/register/(ui)/form";
 
 export default function Register() {

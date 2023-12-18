@@ -1,31 +1,47 @@
+"use client";
+
 import { ButtonShootingStarBorder } from "@/components/button-star-border";
 import { BentoGrid } from "@/components/bento-grid";
+import { Navbar } from "@/components/navbar";
+import { DetailedHTMLProps, HTMLAttributes, useRef } from "react";
+import { BillingPlans } from "@/components/home/billing-plans";
+import { About } from "@/components/home/about";
+import { Hero } from "@/components/home/hero";
 
 export default function Home() {
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const pricingRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
+
+  const scrollTo = (id: string) => {
+    if (id === "about" && aboutRef && aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: "smooth", inline: "end" });
+    } else if (id === "pricing" && pricingRef && pricingRef.current) {
+      pricingRef.current.scrollIntoView({ behavior: "smooth", inline: "end" });
+    } else if (id === "features" && featuresRef && featuresRef.current) {
+      featuresRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "end",
+      });
+    }
+  };
+
   return (
     <div className="bg-black">
+      <Navbar onPressTab={scrollTo} />
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4">
         <main className="flex-1">
-          <section>
-            <div className="relative z-0 mx-auto max-w-3xl pb-24 pt-12 text-center">
-              <div className="absolute -top-4 -z-10 flex w-full justify-center">
-                <div className="h-[600px] w-[600px] max-w-full animate-pulse-slow rounded-full bg-primary opacity-20 blur-[100px]" />
-              </div>
-              <div>
-                <h1 className="bg-gradient-to-t from-[#6d6d6d] to-[#f4f4f4] bg-clip-text text-3xl text-transparent md:text-5xl">
-                  Automate your business, using AI
-                </h1>
-                <h2 className="my-8 bg-gradient-to-t from-[#6d6d6d] to-[#f4f4f4] bg-clip-text text-3xl text-transparent md:text-3xl">
-                  in Whatsapp and Instagram
-                </h2>
-              </div>
-            </div>
+          <section className="py-24">
+            <Hero />
           </section>
-          <section className="flex items-center justify-center py-24">
-            <ButtonShootingStarBorder />
+          <section className="py-24" ref={aboutRef}>
+            <About />
           </section>
-          <section>
+          <section className="py-24" ref={featuresRef}>
             <BentoGrid />
+          </section>
+          <section className="py-24" ref={pricingRef}>
+            <BillingPlans />
           </section>
         </main>
         <footer>
