@@ -57,7 +57,7 @@ export default function Home() {
         </main>
       </div>
       <Footer />
-      {/* <BackgroundBeams /> */}
+      <BackgroundBeams />
     </div>
   );
 }
