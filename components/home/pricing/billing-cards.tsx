@@ -49,7 +49,10 @@ export function BillingCards({ plans }: BillingCardsProps) {
             isLastPlan ? "lg:mt-16 sm:mt-7" : "mt-7")
           }
         >
-          <Button className="w-full text-primary" variant="outline">
+          <Button
+            className="w-full text-primary border-primary"
+            variant="outline"
+          >
             Assine agora
           </Button>
         </div>

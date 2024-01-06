@@ -42,16 +42,16 @@ export default function Home() {
           <section className="py-12 z-10">
             <Hero />
           </section>
-          <section className="py-24 z-10" ref={aboutRef}>
+          <section className="py-12 z-10" ref={aboutRef}>
             <About />
           </section>
-          <section className="py-24 z-10" ref={featuresRef}>
+          <section className="py-12 z-10" ref={featuresRef}>
             <Grid />
           </section>
-          <section className="py-24 z-10" ref={pricingRef}>
+          <section className="py-12 z-10" ref={pricingRef}>
             <BillingPlans />
           </section>
-          <section className="py-24 z-10" ref={faqRef}>
+          <section className="py-12 z-10" ref={faqRef}>
             <Faq />
           </section>
         </main>
