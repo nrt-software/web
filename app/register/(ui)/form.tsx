@@ -57,7 +57,6 @@ const steps = [
 type FieldName = keyof SchemaType;
 
 export const RegisterForm = () => {
-  const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const lastStep = currentStep === steps.length - 1;
   const progress = (currentStep / steps.length) * 100;
@@ -90,21 +89,19 @@ export const RegisterForm = () => {
     if (currentStep === steps.length - 1) {
       await form.handleSubmit(onSubmit)();
     } else {
-      setPreviousStep(currentStep);
       setCurrentStep((step) => step + 1);
     }
   };
 
   const prev = () => {
     if (currentStep > 0) {
-      setPreviousStep(currentStep);
       setCurrentStep((step) => step - 1);
     }
   };
 
   return (
     <div className="w-full lg:w-1/3">
-      <Progress value={progress} className="h-4 my-10"></Progress>
+      <Progress value={progress} className="my-10 h-4"></Progress>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {currentStep === 0 && (

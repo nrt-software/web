@@ -7,8 +7,9 @@ import {
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const DEFAULT_ITEMS = [
   {
@@ -63,8 +64,10 @@ const DEFAULT_ITEMS = [
 ];
 
 export function Sidebar() {
+  const pathname = usePathname();
+
   return (
-    <div className={cn("pb-12 ", ["min-h-screen lg:w-96 mt-4 border-r"])}>
+    <aside className={cn("pb-12 ", ["min-h-screen lg:w-96 mt-4 border-r"])}>
       <div className="space-y-4 py-4">
         {DEFAULT_ITEMS.map((item) => (
           <div className="px-4 py-2" key={item.id}>
@@ -80,7 +83,16 @@ export function Sidebar() {
                   className="w-full justify-start"
                   asChild
                 >
-                  <Link href={sub.href}>
+                  <Link
+                    href={sub.href}
+                    className={cn(
+                      buttonVariants({ variant: "ghost" }),
+                      pathname === sub.href
+                        ? "bg-muted hover:bg-muted"
+                        : "hover:bg-transparent hover:underline",
+                      "justify-start"
+                    )}
+                  >
                     {sub.icon}
                     {sub.label}
                   </Link>
@@ -90,6 +102,6 @@ export function Sidebar() {
           </div>
         ))}
       </div>
-    </div>
+    </aside>
   );
 }

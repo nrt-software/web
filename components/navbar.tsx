@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AnimatedTabs } from "@/components/animated-tab";
+import { Button } from "@/components/home/moving-border";
 
 interface NavbarProps {
   onPressTab: (id: string) => void;
@@ -9,7 +10,7 @@ interface NavbarProps {
 
 export function Navbar({ onPressTab }: NavbarProps) {
   return (
-    <nav className="sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 h-20 w-full bg-black">
+    <nav className="sticky top-0 z-10 backdrop-filter backdrop-blur-sm bg-opacity-30 h-20 w-full bg-white">
       <div className="flex items-center justify-between px-4 md:px-6 py-4 lg:w-[70%] w-full m-auto">
         <div className="flex justify-center lg:justify-start w-1/2">
           <Link className="mr-2 lg:flex" href="#">
@@ -21,9 +22,12 @@ export function Navbar({ onPressTab }: NavbarProps) {
           <AnimatedTabs onPressTab={onPressTab} />
         </div>
         <div className="flex justify-center lg:justify-end w-1/2">
-          <button className="inline-flex h-10 animate-background-shine items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-            Registar
-          </button>
+          <Button
+            borderRadius="1.75rem"
+            className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+          >
+            Cadastrar
+          </Button>
         </div>
       </div>
     </nav>
@@ -39,7 +43,7 @@ function MountainIcon(props: any) {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="white"
+      stroke="black"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

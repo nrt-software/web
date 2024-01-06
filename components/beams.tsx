@@ -59,12 +59,12 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        "absolute  h-full w-full inset-0  [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
+        "absolute h-full w-full inset-0 [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
         className
       )}
     >
       <svg
-        className=" z-0 h-full w-full pointer-events-none absolute "
+        className="z-0 h-full w-full pointer-events-none absolute "
         width="100%"
         height="100%"
         viewBox="0 0 696 316"
@@ -109,10 +109,10 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
                 delay: Math.random() * 10,
               }}
             >
-              <stop stopColor="#5518fc" stopOpacity="0"></stop>
-              <stop stopColor="#5518fc"></stop>
-              <stop offset="32.5%" stopColor="#6344F5"></stop>
-              <stop offset="100%" stopColor="#AE48FF" stopOpacity="0"></stop>
+              <stop stopColor="#18fc36" stopOpacity="0"></stop>
+              <stop stopColor="#18fc36"></stop>
+              <stop offset="32.5%" stopColor="#65f544"></stop>
+              <stop offset="100%" stopColor="#fff048" stopOpacity="0"></stop>
             </motion.linearGradient>
           ))}
 

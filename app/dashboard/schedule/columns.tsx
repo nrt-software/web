@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { DataTableColumnHeader } from "@/components/ui/data-table-header";
 
 import { ScheduleData } from "@/mock/schedule";
@@ -14,6 +15,13 @@ export const columns: ColumnDef<ScheduleData>[] = [
     accessorKey: "status",
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Status" />;
+    },
+    cell: ({ row }) => {
+      return (
+        <Badge variant="outline" className="capitalize">
+          {row.getValue("status")}
+        </Badge>
+      );
     },
   },
   {

@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/pt_BR";
 
 export interface ServiceData {
   id: string;
