@@ -2,12 +2,12 @@
 
 import { Navbar } from "@/components/navbar";
 import { useRef } from "react";
-import { BillingPlans } from "@/components/home/billing-plans";
-import { About } from "@/components/home/about";
-import { Hero } from "@/components/home/hero";
-import { Grid } from "@/components/home/grid";
+import { BillingPlans } from "@/components/home/pricing/billing-plans";
+import { About } from "@/components/home/about/about";
+import { Hero } from "@/components/home/hero/hero";
+import { Grid } from "@/components/home/features/grid";
 import { BackgroundBeams } from "@/components/beams";
-import Faq from "@/components/home/faq";
+import Faq from "@/components/home/faq/faq";
 import Footer from "@/components/home/footer";
 
 export default function Home() {
@@ -57,7 +57,7 @@ export default function Home() {
         </main>
       </div>
       <Footer />
-      <BackgroundBeams />
+      {/* <BackgroundBeams /> */}
     </div>
   );
 }

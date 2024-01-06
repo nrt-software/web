@@ -53,19 +53,29 @@ const items = [
 
 export function Grid() {
   return (
-    <Card className="p-4">
-      <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[20rem]">
-        {items.map((item, i) => (
-          <BentoGridItem
-            key={i}
-            title={item.title}
-            description={item.description}
-            header={item.header}
-            className={item.className}
-            icon={item.icon}
-          />
-        ))}
-      </BentoGrid>
-    </Card>
+    <div className="w-full m-auto flex flex-col justify-center items-center">
+      <h1 className="mb-4 text-center text-5xl font-bold tracking-tight text-foreground w-[90%]">
+        Funcionalidades incriveis
+      </h1>
+      <h2 className="mb-8 text-center text-lg font-medium tracking-tight text-foreground/80 w-[60%]">
+        Obtenha acesso mensal a todas as funcionalidades descritas e alem de
+        quaisquer novos que adicionaremos no futuro, por um preço mensal e
+        simples.
+      </h2>
+      <Card className="p-4 mt-8">
+        <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[20rem]">
+          {items.map((item, i) => (
+            <BentoGridItem
+              key={i}
+              title={item.title}
+              description={item.description}
+              header={item.header}
+              className={item.className}
+              icon={item.icon}
+            />
+          ))}
+        </BentoGrid>
+      </Card>
+    </div>
   );
 }

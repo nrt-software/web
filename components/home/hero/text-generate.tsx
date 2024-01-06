@@ -20,7 +20,7 @@ export const TextGenerateEffect = ({
       },
       {
         duration: 2,
-        delay: stagger(0.1),
+        delay: stagger(0.05),
       }
     );
   }, [scope.current]);
@@ -32,7 +32,7 @@ export const TextGenerateEffect = ({
           return (
             <motion.span
               key={word + idx}
-              className="bg-gradient-to-t from-[#000000] to-[#000000] bg-clip-text text-lg text-transparent opacity-0"
+              className="text-center text-lg font-medium tracking-tight text-foreground/80 opacity-0"
             >
               {word}{" "}
             </motion.span>
@@ -44,7 +44,7 @@ export const TextGenerateEffect = ({
 
   return (
     <div className={cn("font-semibold", className)}>
-      <div className=" bg-gradient-to-t from-[#000000] to-[#000000] bg-clip-text text-transparent text-lg">
+      <div className="text-center text-lg font-medium tracking-tight text-foreground/80">
         {renderWords()}
       </div>
     </div>

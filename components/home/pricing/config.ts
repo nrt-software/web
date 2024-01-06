@@ -1,6 +1,7 @@
 export interface IPlans {
   title: string;
   price: number;
+  description: string;
   content: {
     title: string;
     description: string;
@@ -11,6 +12,8 @@ export const plans: IPlans[] = [
   {
     title: "Básico",
     price: 25,
+    description:
+      "Focados para pequenos empreendedores autonomos, com custo baixo e grandes beneficios",
     content: [
       {
         title: "Atendimento Direto",
@@ -37,6 +40,8 @@ export const plans: IPlans[] = [
   {
     title: "Intermediário",
     price: 50,
+    description:
+      "Focado para empresas de médio porte, que precisam investir em diversos canais de comunicação",
     content: [
       {
         title: "Ampla Cobertura",
@@ -63,6 +68,8 @@ export const plans: IPlans[] = [
   {
     title: "Pro",
     price: 99,
+    description:
+      "Contendo tudo do plano intermediario e adicionando o beneficio de campanha de marketing digital",
     content: [
       {
         title: "Tudo do plano Intermediário",

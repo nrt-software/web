@@ -1,7 +1,14 @@
 export function About() {
   return (
-    <div className="relative">
-      <div className="flex h-full items-center justify-center px-3 py-8">
+    <div className="w-full m-auto flex flex-col justify-center items-center relative">
+      <h1 className="mb-4 text-center text-5xl font-bold tracking-tight text-foreground w-[90%]">
+        Sobre nosso produto
+      </h1>
+      <h2 className="mb-8 text-center text-lg font-medium tracking-tight text-foreground/80 w-[60%]">
+        Texto sobre o produto
+      </h2>
+
+      {/* <div className="flex h-full items-center justify-center px-3 py-8">
         <div className="container mx-auto">
           <div className="flex flex-col items-center justify-center">
             <h2 className="bg-gradient-to-t  from-[#000000] to-[#6d6d6d] bg-clip-text text-2xl text-transparent md:text-3xl">
@@ -45,7 +52,7 @@ export function About() {
           </div>
           <div className="mt-8 text-center"></div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
