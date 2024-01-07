@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { CheckCircle2 } from "lucide-react";
+import { CSSProperties, useEffect, useRef } from "react";
 
 interface BillingCardsProps {
   plans: IPlans;
@@ -17,8 +18,35 @@ export function BillingCards({ plans }: BillingCardsProps) {
 
   const isLastPlan = title === "Pro";
 
+  const isMiddlePlan = title === "Intermediário";
+
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const boxElement = boxRef.current;
+
+    if (!boxElement) {
+      return;
+    }
+
+    const updateAnimation = () => {
+      const angle =
+        (parseFloat(boxElement.style.getPropertyValue("--angle")) + 0.5) % 360;
+      boxElement.style.setProperty("--angle", `${angle}deg`);
+      requestAnimationFrame(updateAnimation);
+    };
+
+    requestAnimationFrame(updateAnimation);
+  }, []);
+
   return (
-    <Card className="bg-white/60 sm:mx-8 lg:mx-0 rounded-3xl px-6 py-8 ring-1 ring-gray-900/10  border border-transparent h-full flex flex-col justify-between">
+    <Card
+      ref={boxRef}
+      className={cn(
+        isMiddlePlan ? "border-primary" : "border-transparent",
+        "bg-white/60 sm:mx-8 lg:mx-0 rounded-3xl px-6 py-8 z-9 ring-1 ring-gray-900/10 border h-full flex flex-col justify-between relative"
+      )}
+    >
       <div>
         <h3 className="text-primary text-xl font-semibold leading-7">
           {title}
