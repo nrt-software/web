@@ -19,8 +19,8 @@ export function AnimatedTabs({ onPressTab }: AnimatedTabsProps) {
             onPressTab(tab.id);
           }}
           className={cn(
-            activeTab === tab.id ? "underline" : "no-underline",
-            "relative rounded-full px-3 py-1.5 text-sm font-medium transition focus-visible:outline-2"
+            activeTab === tab.id ? "font-semibold" : "font-base",
+            "relative rounded-full px-3 py-1.5 text-sm transition focus-visible:outline-2"
           )}
           style={{
             WebkitTapHighlightColor: "transparent",

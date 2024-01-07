@@ -42,7 +42,7 @@ export default function Home() {
           <section className="py-12 z-10">
             <Hero />
           </section>
-          <section className="py-12 z-10" ref={aboutRef}>
+          <section className="py-14 z-10" ref={aboutRef}>
             <About />
           </section>
           <section className="py-12 z-10" ref={featuresRef}>
