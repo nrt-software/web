@@ -6,6 +6,7 @@ export interface IPlans {
     title: string;
     description: string;
   }[];
+  id?: string;
 }
 
 export const plans: IPlans[] = [

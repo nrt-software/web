@@ -3,20 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { CheckCircle2 } from "lucide-react";
-import { CSSProperties, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface BillingCardsProps {
-  plans: IPlans;
+  plan: IPlans;
 }
 
-export function BillingCards({ plans }: BillingCardsProps) {
-  const { price, title, content, description } = plans;
+export function BillingCards({ plan }: BillingCardsProps) {
+  const { price, title, content, description, id } = plan;
   const formattedPrice = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
   }).format(price);
 
   const isLastPlan = title === "Pro";
+
+  console.log(plan.id);
 
   const isMiddlePlan = title === "Intermediário";
 
@@ -38,6 +40,22 @@ export function BillingCards({ plans }: BillingCardsProps) {
 
     requestAnimationFrame(updateAnimation);
   }, []);
+
+  const onHandleClick = async () => {
+    const response = await fetch("/api/payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        priceId: id,
+      }),
+    });
+
+    console.log("onHandleClick", response);
+
+    // window.location.assign(response);
+  };
 
   return (
     <Card
@@ -80,6 +98,7 @@ export function BillingCards({ plans }: BillingCardsProps) {
           <Button
             className="w-full text-primary border-primary"
             variant="outline"
+            onClick={onHandleClick}
           >
             Assine agora
           </Button>

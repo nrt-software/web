@@ -30,7 +30,7 @@ export const Analytics = ({ data }: any) => {
             axisLine={false}
             tickFormatter={(value) => `${value}`}
           />
-          <Bar dataKey="total" fill="#7B39ED" radius={[4, 4, 0, 0]} />
+          <Bar dataKey="total" fill="#65f544" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
