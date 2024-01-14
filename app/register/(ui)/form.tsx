@@ -1,6 +1,6 @@
 "use client";
 
-import { SchemaType, registerSchema } from "@/app/register/config";
+import { SchemaType, professions, registerSchema } from "@/app/register/config";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
@@ -18,7 +18,9 @@ import { useForm } from "react-hook-form";
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -136,13 +138,16 @@ export const RegisterForm = () => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="m@example.com">
-                        m@example.com
-                      </SelectItem>
-                      <SelectItem value="m@google.com">m@google.com</SelectItem>
-                      <SelectItem value="m@support.com">
-                        m@support.com
-                      </SelectItem>
+                      {professions.map((item) => (
+                        <SelectGroup key={item.name}>
+                          <SelectLabel>{item.name}</SelectLabel>
+                          {item.group.map((subitem) => (
+                            <SelectItem value={subitem} key={subitem}>
+                              {subitem}
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      ))}
                     </SelectContent>
                   </Select>
                   <FormMessage />

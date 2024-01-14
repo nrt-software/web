@@ -21,3 +21,41 @@ export const registerSchema = z.object({
 });
 
 export type SchemaType = z.infer<typeof registerSchema>;
+
+export const professions = [
+  {
+    name: "Profissionais de Saúde",
+    value: "doctor",
+    group: ["Médicos", "Dentistas", "Psicólogos"],
+  },
+  {
+    name: "Salões de Beleza",
+    value: "self-barber",
+    group: ["Cabeleireiros", "Esteticistas"],
+  },
+  {
+    name: "Profissionais de Fitness: ",
+    value: "fitness",
+    group: ["Personal trainers", "Instrutores de yoga"],
+  },
+  {
+    name: "Contadores, assessores financeiros",
+    value: "financial",
+    group: ["Contadores", "Assessores financeiros"],
+  },
+  {
+    name: "Serviços de Entrega:",
+    value: "delivery",
+    group: ["Entregadores autônomos", "Pequenos negócios de entrega"],
+  },
+  {
+    name: "Profissionais de Educação:",
+    value: "teacher",
+    group: ["Professores particulares", "Tutores"],
+  },
+  {
+    name: "Serviços de Manutenção: ",
+    value: "management",
+    group: ["Encanadores", "Eletricistas", "Técnicos de informática"],
+  },
+];
