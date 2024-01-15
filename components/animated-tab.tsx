@@ -1,6 +1,7 @@
+"use client";
+
 import { tabs } from "@/app/config";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { useState } from "react";
 
 interface AnimatedTabsProps {

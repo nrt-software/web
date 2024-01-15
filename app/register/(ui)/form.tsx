@@ -102,7 +102,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div className="w-full lg:w-1/3">
+    <div className="w-full lg:w-1/3 relative z-9 mt-10">
       <Progress value={progress} className="my-10 h-4"></Progress>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

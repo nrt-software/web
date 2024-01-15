@@ -2,7 +2,13 @@ import { columns } from "@/app/dashboard/services/columns";
 import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/data-table";
 import generateServiceData from "@/mock/services";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Dashboard - Services",
+  description: "",
+};
 
 export default async function Page() {
   const data = await generateServiceData(100);

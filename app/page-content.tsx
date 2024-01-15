@@ -62,7 +62,6 @@ export default function PageContent({ billing }: PageContentProps) {
           </section>
         </main>
       </div>
-      <Footer />
       <BackgroundBeams />
     </div>
   );

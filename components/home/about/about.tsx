@@ -96,7 +96,7 @@ export function About() {
       <div className="p-4">
         <StickyScroll content={content} />
       </div>
-      <HeroParallax products={products} />
+      {/* <HeroParallax products={products} /> */}
     </div>
   );
 }

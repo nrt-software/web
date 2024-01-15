@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Provider } from "@/providers";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/home/footer";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -13,7 +14,7 @@ export const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Automate your business with us!",
+  title: "Automatize o seu negócio",
   description: "",
 };
 
@@ -37,7 +38,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Toaster />
-          <Provider>{children}</Provider>
+          <Provider>
+            {children}
+            <Footer />
+          </Provider>
         </ThemeProvider>
       </body>
     </html>
