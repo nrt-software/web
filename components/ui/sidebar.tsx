@@ -12,21 +12,11 @@ import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { faker } from "@faker-js/faker";
 
 const DEFAULT_ITEMS = [
   {
-    id: 1,
-    title: "Payments",
-    items: [
-      {
-        label: "Payments",
-        href: "/dashboard/payments",
-        icon: <CircleDollarSign className="mr-2 h-4 w-4" />,
-      },
-    ],
-  },
-  {
-    id: 2,
+    id: faker.string.uuid(),
     title: "Clients",
     items: [
       {
@@ -42,7 +32,18 @@ const DEFAULT_ITEMS = [
     ],
   },
   {
-    id: 3,
+    id: faker.string.uuid(),
+    title: "Payments",
+    items: [
+      {
+        label: "Payments",
+        href: "/dashboard/payments",
+        icon: <CircleDollarSign className="mr-2 h-4 w-4" />,
+      },
+    ],
+  },
+  {
+    id: faker.string.uuid(),
     title: "Services",
     items: [
       {
@@ -53,7 +54,7 @@ const DEFAULT_ITEMS = [
     ],
   },
   {
-    id: 3,
+    id: faker.string.uuid(),
     title: "Schedule",
     items: [
       {
@@ -69,7 +70,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className={cn("pb-12 ", ["min-h-screen lg:w-96 mt-4 border-r"])}>
+    <aside className="pb-12 min-h-screen lg:w-96 mt-4 border-r">
       <div className="space-y-4 py-4">
         {DEFAULT_ITEMS.map((item) => (
           <div className="px-4 py-2" key={item.id}>

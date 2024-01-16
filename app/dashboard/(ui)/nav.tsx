@@ -16,23 +16,23 @@ import Link from "next/link";
 
 export const NavDashboard = () => {
   return (
-    <div className="w-full flex justify-between items-end p-4">
+    <div className="w-full flex justify-between items-center p-4">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <div className="relative flex items-center h-8 rounded-full">
+          <div className="relative flex items-center h-8 rounded-full cursor-pointer">
             <Avatar>
               <AvatarImage
                 src="https://avatars.githubusercontent.com/u/37451939"
                 alt="@lucasaraujonrt"
               />
-              <AvatarFallback>Lucas</AvatarFallback>
+              <AvatarFallback>L</AvatarFallback>
             </Avatar>
             <h4 className="text-md pl-2 font-semibold tracking-tight">
               Lucas Araujo
             </h4>
           </div>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56" align="end" forceMount>
+        <DropdownMenuContent className="w-56 ml-2 mt-2" align="end" forceMount>
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
               <p className="text-sm font-medium leading-none">lucasnrt</p>
@@ -53,7 +53,7 @@ export const NavDashboard = () => {
         </DropdownMenuContent>
       </DropdownMenu>
       <Button
-        className="text-xl font-semibold tracking-tight hover:underline-offset-0"
+        className="text-xl flex font-semibold tracking-tight hover:underline-offset-0"
         asChild
         variant="link"
       >

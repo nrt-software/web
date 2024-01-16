@@ -6,6 +6,7 @@ import { Table } from "@tanstack/react-table";
 import { DataTableViewOptions } from "@/components/ui/data-table-view-options";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { usePathname, useRouter } from "next/navigation";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -15,6 +16,9 @@ export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
+  const path = usePathname();
+  const route = useRouter();
+  console.log(path);
   const tableHasEmailColumn = table
     .getAllColumns()
     .find((column) => column.id === "email");
@@ -44,6 +48,14 @@ export function DataTableToolbar<TData>({
         )}
       </div>
       <DataTableViewOptions table={table} />
+      <Button
+        onClick={() => route.push(`${path}/create`)}
+        size="sm"
+        variant="default"
+        className="ml-2"
+      >
+        Create
+      </Button>
     </div>
   );
 }
