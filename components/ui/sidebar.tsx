@@ -20,7 +20,7 @@ const DEFAULT_ITEMS = [
     title: "Clients",
     items: [
       {
-        label: "Clients report",
+        label: "Clients",
         href: "/dashboard/clients",
         icon: <User className="mr-2 h-4 w-4" />,
       },

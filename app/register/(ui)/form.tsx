@@ -3,7 +3,6 @@
 import { SchemaType, professions, registerSchema } from "@/app/register/config";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion } from "framer-motion";
 import {
   Form,
   FormControl,

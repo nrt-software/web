@@ -1,6 +1,5 @@
 import { columns } from "@/app/dashboard/clients/columns";
 import { DataTable } from "@/components/ui/data-table";
-import generateClientData from "@/mock/client";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,11 +8,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const data = await generateClientData(40);
+  const data = await fetch(`${process.env.NEXT_URL}/api/clients`);
+  const { clients } = await data.json();
 
   return (
     <main className="w-full">
-      <DataTable columns={columns} data={data} />
+      <DataTable columns={columns} data={clients} />
     </main>
   );
 }

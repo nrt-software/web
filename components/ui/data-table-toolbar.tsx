@@ -6,7 +6,7 @@ import { Table } from "@tanstack/react-table";
 import { DataTableViewOptions } from "@/components/ui/data-table-view-options";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -16,12 +16,25 @@ export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
+  const searchParams = useSearchParams();
   const path = usePathname();
   const route = useRouter();
-  console.log(path);
+
   const tableHasEmailColumn = table
     .getAllColumns()
     .find((column) => column.id === "email");
+
+  const onChangeEmail = (email: string) => {
+    const params = new URLSearchParams(searchParams);
+    table.getColumn("email")?.setFilterValue(email);
+    if (email) {
+      params.set("email", email);
+    } else {
+      params.delete("email");
+    }
+
+    route.replace(`${path}?${params.toString()}`);
+  };
 
   return (
     <div className="flex items-center justify-between">
@@ -30,10 +43,11 @@ export function DataTableToolbar<TData>({
           <Input
             placeholder="Filter email..."
             value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
-              table.getColumn("email")?.setFilterValue(event.target.value)
-            }
+            onChange={(event) => {
+              onChangeEmail(event.target.value);
+            }}
             className="h-8 w-[250px] lg:w-[350px]"
+            defaultValue={searchParams.get("email")?.toString()}
           />
         )}
         {isFiltered && (

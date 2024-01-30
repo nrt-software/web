@@ -97,17 +97,15 @@ export function CommandMenu() {
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Suggestions">
           {options.map((option) => (
-            <>
-              <CommandItem
-                key={option.title}
-                onSelect={() => {
-                  setOpen(!open);
-                  router.push(option.route);
-                }}
-              >
-                {option.title}
-              </CommandItem>
-            </>
+            <CommandItem
+              key={option.title}
+              onSelect={() => {
+                setOpen(!open);
+                router.push(option.route);
+              }}
+            >
+              {option.title}
+            </CommandItem>
           ))}
         </CommandGroup>
       </CommandList>
