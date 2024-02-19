@@ -1,8 +1,6 @@
 "use client";
 
 import { AnimatedTabs } from "@/components/animated-tab";
-import ButtonCta from "@/components/home/button-cta";
-import { Button } from "@/components/home/moving-border";
 import { MountainIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
