@@ -21,9 +21,12 @@ export default function Faq() {
         </h2>
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
-            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionTrigger>
+              É acessivel? Vou poder usar meu WhatsApp normalmente?
+            </AccordionTrigger>
             <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
+              Sim, você poderia ativar e desativar sempre que quiser (isso não
+              diminuirá o valor mensal do produto)
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">

@@ -116,7 +116,7 @@ export function VideoHero() {
         />
       </div>
       <video ref={videoRef} className="w-full" loop muted autoPlay>
-        <source src="./video.mp4" />
+        <source src="./video2.mp4" />
       </video>
     </div>
   );
