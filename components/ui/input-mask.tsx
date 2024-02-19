@@ -1,5 +1,5 @@
 import * as React from "react";
-import InputMask from "react-input-mask";
+import InputMask, { Props } from "react-input-mask";
 
 import { cn } from "@/lib/utils";
 
@@ -7,8 +7,7 @@ const MASK_TYPE = {
   phone: "+5\\5 99 99999-9999",
 } as const;
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends Props {
   mask: keyof typeof MASK_TYPE;
 }
 
